@@ -1,0 +1,20 @@
+{
+  "name": "eleco",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Shop with Elegance",
+  "main": "app.js",
+  "scripts": {
+    "start": "node backend/App.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/App.js",
+    "prod": " SET NODE_ENV=PRODUCTION& nodemon backend/App.js"
+  },
+  "author": "OKS",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2",
+    "nodemon": "^3.1.4"
+  }
+}
