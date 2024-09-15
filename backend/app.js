@@ -3,6 +3,8 @@ import dotenv from "dotenv"
 const app = express();
 import productRoutes from "./routes/products.js"
 import { connectDatabase } from "./config/dbConnect.js";
+import errorMiddleware from "./middlewares/error.js"
+
 
 dotenv.config({path:"backend/config/config.env"})
 
