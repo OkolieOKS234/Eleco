@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const productSchema = new mongoose.Schema({
 
 name: {
@@ -15,7 +16,7 @@ price:{
 description:{
     type: String,
     required: [true, "Please enter the product description"],
-    maxLength: [300, "Length should be 300"]
+    maxLength: [3000, "Length should be 300"]
 },
 ratings:{
     type: Number,
@@ -38,7 +39,7 @@ category:{
             "Electronics",
             "Cameras",
             "Laptops",
-            "Accesories",
+            "Accessories",
             "Headphones",
             "Food",
             "Books",
@@ -82,7 +83,7 @@ reviews:[
 user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    required: false,
 },
 }, {timestamps:true})
 

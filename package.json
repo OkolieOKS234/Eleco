@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node backend/App.js",
     "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/App.js",
-    "prod": " SET NODE_ENV=PRODUCTION& nodemon backend/App.js"
+    "prod": " SET NODE_ENV=PRODUCTION& nodemon backend/App.js",
+    "seeder": "node backend/seeder/seeder.js"
   },
   "author": "OKS",
   "license": "ISC",

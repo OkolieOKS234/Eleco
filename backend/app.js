@@ -9,7 +9,7 @@ dotenv.config({path:"backend/config/config.env"})
 // Connecting our Database
 connectDatabase();
 
-
+app.use(express.json())
 
 // Using all routes
 app.use("/api/v1/", productRoutes) 
