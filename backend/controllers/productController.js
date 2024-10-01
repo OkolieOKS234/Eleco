@@ -1,13 +1,19 @@
+import catchAsyncErrors from "../middlewares/catchAsyncErrors.js"
 import products from "../models/products.js"
 import Product from "../models/products.js"
+import APIFilters from "../utils/apiFilters.js"
 import ErrorHandler from "../utils/errorHandler.js"
 // Create a new product api/v1/products
  export const getProducts = async(req,res)=>{
-    // get new product
-const products = await Product.find()
 
+const apiFilters = new APIFilters(Product, req.query).search()
+
+let products = await apiFilters.query
+let filteredProductsCount = products.length
+    // get new product
 res.status(200).json({
-   products,
+  filteredProductsCount, 
+  products
 })
 }
 // Create a new product api/v1/admin/products
@@ -20,7 +26,9 @@ res.status(200).json({
 
     }
 // getting a single Product api/v1/admin/products/id
-export const getProductDetails = async(req,res, next)=>{
+
+// I will wrap this in a Error handler in middlewares folder
+export const getProductDetails = catchAsyncErrors (async (req,res, next)=>{
   const  product = await Product.findById(req?.params?.id)
 
 if(!product){
@@ -33,7 +41,7 @@ res.status(200).json({
     product
 })
 
-    }
+    })
 // Update a product detail
 
 export const updateProduct = async(req,res)=>{

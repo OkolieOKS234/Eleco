@@ -12,9 +12,10 @@ if(err.name === 'CastError'){
     error = new ErrorHandler(message, 404);
 }
 // Handle Validation Error
-if(err.name === 'ValidatorError'){
-    const message = Object.values(err.errors)
-    error = new ErrorHandler(message, 404);
+if(err.name === 'ValidationError'){
+    // Meaning that for each value you would get an error message for all
+    const message = Object.values(err.errors).map((value)=> value.message)
+    error = new ErrorHandler(message, 400);
 }
 
 
